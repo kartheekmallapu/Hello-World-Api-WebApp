@@ -21,6 +21,7 @@ $ docker run -d -p 5000:5000 webapp-simple:1
 ```
 
 API endpoint will be accessible at http:hostname:5000/api
+
 Web app will be accessible at http://hostname:5000/index
 
 Port 5000 is default used in Flask fremework, you can change it if needed, otherwise you can change the tcp port that you are exposing to internet like http port as 80. simply run below to use default http port as below 

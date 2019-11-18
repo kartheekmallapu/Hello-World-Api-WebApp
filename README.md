@@ -6,6 +6,7 @@
 * Git - Source control
 * Gitgub - Interface for this repository
 * Docker - To containerise this web application and expose the application service 
+* Linux - AWS AMI --> Alpine Linux 3.10.1-19b85397-1476-4b55-a313-2a543eae6021-ami-017a39af3404e180e.4 
 
 Build the image using the following command
 
@@ -29,4 +30,5 @@ Port 5000 is default used in Flask fremework, you can change it if needed, other
 ```bash
 $ docker run -d -p 80:5000 webapp-simple:1
 ```
-
+### Testing
+I have tested the application and works fine for me. Please navigate to "testing" folder and verify execution and testing results.

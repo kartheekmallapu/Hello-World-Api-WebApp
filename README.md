@@ -3,10 +3,10 @@
 ## Artifacts used to develop this simple web application :
 * Python
 * Flask - Flask is a Python web framework, it is a third-party Python library used for developing web applications.
-* Git - Source control
-* Gitgub - Interface for this repository
+* Git - Source code control
+* Github - Interface for this repository
 * Docker - To containerise this web application and expose the application service 
-* Linux - AWS AMI --> Alpine Linux 3.10.1-19b85397-1476-4b55-a313-2a543eae6021-ami-017a39af3404e180e.4 
+* Linux - AWS AMI --> Alpine Linux 3.10.1-19b85397-1476-4b55-a313-2a543eae6021-ami-017a39af3404e180e.4 (Light weight docker pre-   installed OS)
 
 Build the image using the following command
 

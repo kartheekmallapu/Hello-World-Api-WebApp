@@ -37,7 +37,11 @@ $ docker run -d -p 80:5000 webapp-simple:1
 I have tested the application and works fine for me. Please open execution.log to verify the steps.
 
 ### Note
-To make it simeple i have included index.html directly in webapp.py , you can use "render_template" module which gives ability to save html files in templates folder and refer them in webapp.py
+To make it simeple i have included index.html directly in webapp.py , you can use ### render_template ### module which gives ability to save html files in templates folder and refer them in webapp.py
+
+### Use it for diffenet deployments/Environments
+
+As of now i have done all my work in master branch, please create new feature branches (like dev, nonp, prod) to customise/enhance/modify the code to fit to your enviroment.
 
 ### Do you need HA for this web app ?
 * use Kubernetes cluster or Docker swarm :)

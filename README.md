@@ -43,6 +43,15 @@ To make it simeple i have included index.html directly in webapp.py , you can us
 
 As of now i have done all my work in master branch, please create new feature branches (like dev, nonp, prod) to customise/enhance/modify the code to fit to your enviroment.
 
+### CICD way
+
+To achieve CICD for this web app, use some CICD tools like TeamCity, Jenkins, Codebuild etc to create a pipline and configure webhook in this repo.
+
+So whenver a change is done or merged to master brach, a pipepline will be trigerred to build new docker image and run a container to make your changes effective.
+
+In pipeline, write a simeple shell script which will take care of docker build and docker run (increment version) for all new changes.
+
+
 ### Do you need HA for this web app ?
 * use Kubernetes cluster or Docker swarm :)
 

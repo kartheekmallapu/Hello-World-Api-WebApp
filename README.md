@@ -8,6 +8,8 @@
 * Docker - To containerise this web application and expose the application service 
 * Linux - AWS AMI --> Alpine Linux 3.10.1-19b85397-1476-4b55-a313-2a543eae6021-ami-017a39af3404e180e.4 (Light weight docker pre-   installed OS)
 
+Clone the repoistory to your OS, would be simple if it is linux to test this.
+
 Build the image using the following command
 
 ```bash
@@ -20,6 +22,7 @@ Run the Docker container using the command shown below.
 ```bash
 $ docker run -d -p 5000:5000 webapp-simple:1
 ```
+If you are using AWS to do this exercise, please allow port 5000 or respective TCP port in your security group.
 
 API endpoint will be accessible at http://hostname:5000/apimessage
 

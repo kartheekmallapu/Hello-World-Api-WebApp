@@ -21,7 +21,7 @@ Run the Docker container using the command shown below.
 $ docker run -d -p 5000:5000 webapp-simple:1
 ```
 
-API endpoint will be accessible at http:hostname:5000/api
+API endpoint will be accessible at http://hostname:5000/apimessage
 
 Web app will be accessible at http://hostname:5000/index
 
@@ -31,4 +31,4 @@ Port 5000 is default used in Flask fremework, you can change it if needed, other
 $ docker run -d -p 80:5000 webapp-simple:1
 ```
 ### Testing
-I have tested the application and works fine for me. Please navigate to "testing" folder and verify execution and testing results.
+I have tested the application and works fine for me. Please open execution.log to verify the steps.

@@ -8,7 +8,7 @@
 * Docker - To containerise this web application and expose the application service 
 * Linux - AWS AMI --> Alpine Linux 3.10.1-19b85397-1476-4b55-a313-2a543eae6021-ami-017a39af3404e180e.4 (Light weight docker pre-   installed OS)
 
-Clone the repoistory to your OS, would be simple if it is linux to test this.
+Clone the repository to your local system using git, would be simple if it is linux to test this.
 
 Build the image using the following command
 

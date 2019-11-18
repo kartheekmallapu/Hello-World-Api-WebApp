@@ -1,0 +1,63 @@
+
+root@ip-10-8-35-166:/code# ls -lrt
+total 12
+-rw-r--r--    1 root     root           179 Nov 18 20:38 Dockerfile
+-rw-r--r--    1 root     root           542 Nov 18 20:39 webapp.py
+-rw-r--r--    1 root     root             6 Nov 18 20:39 requirements.txt
+
+root@ip-10-8-35-166:/code# docker build -t webapp-simple:1 .
+Sending build context to Docker daemon  4.608kB
+Step 1/7 : FROM python:2.7
+ ---> 3a6979021950
+Step 2/7 : MAINTAINER Kartheek Reddy Mallapu "kloudviva@gmail.com"
+ ---> Running in e171561b4e45
+Removing intermediate container e171561b4e45
+ ---> abe250217063
+Step 3/7 : COPY . /webapp
+ ---> a9b7539f76b0
+Step 4/7 : WORKDIR /webapp
+ ---> Running in 23039e0e191a
+Removing intermediate container 23039e0e191a
+ ---> f93436be3f67
+Step 5/7 : RUN pip install -r requirements.txt
+ ---> Running in 9070928080c6
+DEPRECATION: Python 2.7 will reach the end of its life on January 1st, 2020. Please upgrade your Python as Python 2.7 won't be maintained after that date. A future version of pip will drop support for Python 2.7. More details about Python 2 support in pip, can be found at https://pip.pypa.io/en/latest/development/release-process/#python-2-support
+Collecting flask
+  Downloading https://files.pythonhosted.org/packages/9b/93/628509b8d5dc749656a9641f4caf13540e2cdec85276964ff8f43bbb1d3b/Flask-1.1.1-py2.py3-none-any.whl (94kB)
+Collecting click>=5.1
+  Downloading https://files.pythonhosted.org/packages/fa/37/45185cb5abbc30d7257104c434fe0b07e5a195a6847506c074527aa599ec/Click-7.0-py2.py3-none-any.whl (81kB)
+Collecting Werkzeug>=0.15
+  Downloading https://files.pythonhosted.org/packages/ce/42/3aeda98f96e85fd26180534d36570e4d18108d62ae36f87694b476b83d6f/Werkzeug-0.16.0-py2.py3-none-any.whl (327kB)
+Collecting itsdangerous>=0.24
+  Downloading https://files.pythonhosted.org/packages/76/ae/44b03b253d6fade317f32c24d100b3b35c2239807046a4c953c7b89fa49e/itsdangerous-1.1.0-py2.py3-none-any.whl
+Collecting Jinja2>=2.10.1
+  Downloading https://files.pythonhosted.org/packages/65/e0/eb35e762802015cab1ccee04e8a277b03f1d8e53da3ec3106882ec42558b/Jinja2-2.10.3-py2.py3-none-any.whl (125kB)
+Collecting MarkupSafe>=0.23
+  Downloading https://files.pythonhosted.org/packages/fb/40/f3adb7cf24a8012813c5edb20329eb22d5d8e2a0ecf73d21d6b85865da11/MarkupSafe-1.1.1-cp27-cp27mu-manylinux1_x86_64.whl
+Installing collected packages: click, Werkzeug, itsdangerous, MarkupSafe, Jinja2, flask
+Successfully installed Jinja2-2.10.3 MarkupSafe-1.1.1 Werkzeug-0.16.0 click-7.0 flask-1.1.1 itsdangerous-1.1.0
+Removing intermediate container 9070928080c6
+ ---> ab0e9efa8059
+Step 6/7 : ENTRYPOINT ["python"]
+ ---> Running in 5551ed6ebc11
+Removing intermediate container 5551ed6ebc11
+ ---> f1352bfeb9cd
+Step 7/7 : CMD ["webapp.py"]
+ ---> Running in 368cf282b68a
+Removing intermediate container 368cf282b68a
+ ---> ad88c25dd043
+Successfully built ad88c25dd043
+Successfully tagged webapp-simple:1
+root@ip-10-8-35-166:/code# docker image ls
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+webapp-simple       1                   ad88c25dd043        8 seconds ago       890MB
+python              2.7                 3a6979021950        3 days ago          886MB
+root@ip-10-8-35-166:/code# docker run -d -p 5000:5000 webapp-simple:1
+acf80d7eaf96e216710be9e67116b80fb5025a43a275cf16a209eed9728c0a7d
+root@ip-10-8-35-166:/code# docker container ls
+CONTAINER ID        IMAGE               COMMAND              CREATED             STATUS              PORTS                    NAMES
+acf80d7eaf96        webapp-simple:1     "python webapp.py"   4 seconds ago       Up 3 seconds        0.0.0.0:5000->5000/tcp   quizzical_margulis
+root@ip-10-8-35-166:/code# nestat -an |grep 5000
+-ash: nestat: not found
+root@ip-10-8-35-166:/code# netstat -an |grep 5000
+tcp        0      0 :::5000     
